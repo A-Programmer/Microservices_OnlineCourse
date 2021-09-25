@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sadin/Projects/OnlineSessions/src/PlatformService/PlatformService.csproj": {}
+    "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/PlatformService.csproj": {}
   },
   "projects": {
-    "/Users/sadin/Projects/OnlineSessions/src/PlatformService/PlatformService.csproj": {
+    "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/PlatformService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sadin/Projects/OnlineSessions/src/PlatformService/PlatformService.csproj",
+        "projectUniqueName": "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/PlatformService.csproj",
         "projectName": "PlatformService",
-        "projectPath": "/Users/sadin/Projects/OnlineSessions/src/PlatformService/PlatformService.csproj",
+        "projectPath": "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/PlatformService.csproj",
         "packagesPath": "/Users/sadin/.nuget/packages/",
-        "outputPath": "/Users/sadin/Projects/OnlineSessions/src/PlatformService/obj/",
+        "outputPath": "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

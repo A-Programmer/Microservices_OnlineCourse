@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zLsB0k4bvFp+oKlNNY0EqV6T/W77AYxo4j9ndjVppNImvcOANUww7PoPAEekEIJDuBBLW8rbaVr8xsljCY37uA==",
+  "dgSpecHash": "ZEDS6WSXu+iMggoT7bDravaPtNY/Isji4bIUhhRV27rEevm1TSub0tvaRTC7xKkWMM8SuCtaJCsohDk2mzwmkg==",
   "success": true,
-  "projectFilePath": "/Users/sadin/Projects/OnlineSessions/src/PlatformService/PlatformService.csproj",
+  "projectFilePath": "/Users/sadin/Projects/OnlineSessions/Microservices Architecture/src/PlatformService/PlatformService.csproj",
   "expectedPackageFiles": [
     "/Users/sadin/.nuget/packages/automapper/10.1.1/automapper.10.1.1.nupkg.sha512",
     "/Users/sadin/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.1.1/automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
