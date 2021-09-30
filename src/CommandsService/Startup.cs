@@ -6,16 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using PlatformService.Data;
-using PlatformService.SyncDataServices;
 
-namespace PlatformService
+namespace CommandsService
 {
     public class Startup
     {
@@ -30,21 +27,11 @@ namespace PlatformService
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseInMemoryDatabase("InMem"));
-
-            services.AddScoped<IPlatformRepo, PlatformRepo>();
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommandsService", Version = "v1" });
             });
-            Console.WriteLine(Configuration["CommandsServiceUrl"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +41,7 @@ namespace PlatformService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlatformService v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CommandsService v1"));
             }
 
             // app.UseHttpsRedirection();
@@ -67,8 +54,6 @@ namespace PlatformService
             {
                 endpoints.MapControllers();
             });
-
-            PrepDb.PrepPopulation(app, env.IsProduction());
         }
     }
 }
