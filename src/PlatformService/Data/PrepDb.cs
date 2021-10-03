@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Models;
 
@@ -23,6 +24,7 @@ namespace PlatformService.Data
             if(isProduction)
             {
                 Console.WriteLine("--> We are in production mode!");
+                context.Database.Migrate();
             }
             else
             {

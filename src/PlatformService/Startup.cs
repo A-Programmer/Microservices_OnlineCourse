@@ -19,20 +19,32 @@ namespace PlatformService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        {
+            Configuration = configuration;
+            _env = env;
+        }
+
+
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseInMemoryDatabase("InMem"));
-
+            if(_env.IsProduction())
+            {
+                //Use SQL Server as Database Provider
+                Console.WriteLine(" ==> Using SQL Server as Database Provider ...\n\n\n\n\n\n");
+                services.AddDbContext<AppDbContext>(opt => 
+                    opt.UseSqlServer(Configuration.GetConnectionString("PlatformsConn")));
+            }
+            else
+            {
+                Console.WriteLine("Using InMemory Database.");
+                services.AddDbContext<AppDbContext>(options =>
+                    options.UseInMemoryDatabase("InMem"));
+            }
             services.AddScoped<IPlatformRepo, PlatformRepo>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -47,7 +59,7 @@ namespace PlatformService
             Console.WriteLine(Configuration["CommandsServiceUrl"]);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
